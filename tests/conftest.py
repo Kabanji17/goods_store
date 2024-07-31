@@ -24,3 +24,8 @@ def category():
             Product("Samsung Galaxy S", "256GB, Серый цвет, 200MP камера", 12899.99, 3),
         ],
     )
+
+
+@pytest.fixture
+def params_product():
+    return {"name": "Samsung", "description": "512GB", "price": 12132.6, "quantity": 2}
