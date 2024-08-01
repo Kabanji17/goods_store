@@ -2,6 +2,7 @@ import pytest
 
 from src.category import Category
 from src.product import Product
+from src.product_iterator import ProductIterator
 
 
 @pytest.fixture
@@ -29,3 +30,8 @@ def category():
 @pytest.fixture
 def params_product():
     return {"name": "Samsung", "description": "512GB", "price": 12132.6, "quantity": 2}
+
+
+@pytest.fixture
+def product_iterator(category):
+    return ProductIterator(category)
