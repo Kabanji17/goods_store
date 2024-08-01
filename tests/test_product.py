@@ -1,5 +1,4 @@
 from src.product import Product
-from tests.conftest import params_product, product_1, product_2
 
 
 def test_product_init(product_1, product_2):
@@ -40,4 +39,3 @@ def test_product_str(product_1, product_2):
 def test_product_add(product_1, product_2):
     """Тестирование магического метода add"""
     assert product_1 + product_2 == 1100152610.95
-

@@ -35,7 +35,7 @@ pip install -r requirements.txt
 
 ## Тесты:
 1. Для тестирования используются фикстуры в модуле ```conftest.py```.
-2. Программа покрыта тестами на 92%
+2. Программа покрыта тестами на 93%
 
 ### Покрытие тестами 
 
@@ -57,10 +57,10 @@ src\product.py               44     11    75%
 src\product_iterator.py      13      0   100%
 tests\__init__.py             0      0   100%
 tests\conftest.py            19      0   100%
-tests\test_category.py       24      1    96%
-tests\test_product.py        26      0   100%
+tests\test_category.py       23      0   100%
+tests\test_product.py        25      0   100%
 ---------------------------------------------
-TOTAL                       156     12    92%
+TOTAL                       154     11    93%
 ```
 ## Документация:
 

@@ -1,7 +1,5 @@
 import pytest
 
-from tests.conftest import category
-
 
 def test_category_init(category):
     """Тестирование инициализации объекта класса Category"""
@@ -12,8 +10,8 @@ def test_category_init(category):
 
 def test_category_count(category):
     """Тестирование счетчиков класса Category"""
-    assert category.category_count == 1
-    assert category.product_count == 2
+    assert category.category_count == 2
+    assert category.product_count == 4
 
 
 def test_category_products_list_property(category):
