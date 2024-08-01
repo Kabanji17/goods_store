@@ -31,3 +31,13 @@ def test_product_update(capsys, product_1):
     assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
 
 
+def test_product_str(product_1, product_2):
+    """Тестирование магического метода str"""
+    assert str(product_1) == "Samsung Galaxy S, 12899.99 руб. Остаток: 4 шт."
+    assert str(product_2) == "Iphone, 1100101010.99 руб. Остаток: 1 шт."
+
+
+def test_product_add(product_1, product_2):
+    """Тестирование магического метода add"""
+    assert product_1 + product_2 == 1100152610.95
+
