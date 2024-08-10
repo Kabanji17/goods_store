@@ -18,6 +18,13 @@ class Category:
         Category.product_count += len(products) if products else 0
         Category.category_count += 1
 
+    def __str__(self):
+        """Магический метод для строкового отображения объекта"""
+        total_quantity = 0
+        for item in self.__products:
+            total_quantity += item.quantity
+        return f"{self.name}, количество продуктов: {total_quantity} шт."
+
     def add_product(self, product: Product):
         """Метод для добавления товаров в категорию"""
         self.__products.append(product)
@@ -27,7 +34,7 @@ class Category:
     def products(self) -> str:
         products = ""
         for product in self.__products:
-            products += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
+            products += f"{str(product)}\n"
         return products
 
     @property
