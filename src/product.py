@@ -19,7 +19,7 @@ class Product:
 
     def __add__(self, other):
         """Магический метод для сложения двух объектов"""
-        if isinstance(other, self.__class__):
+        if type(other) is Product:
             return self.__price * self.quantity + other.__price * other.quantity
         else:
             raise TypeError
