@@ -22,9 +22,21 @@ def test_category_products_list_property(category):
 
 
 def test_category_add_product(category, product_1):
+    """Тестирование метода добавления продукта в категорию"""
     assert len(category.products_in_list) == 2
     category.add_product(product_1)
     assert len(category.products_in_list) == 3
+
+
+def test_category_add_invalid(category, product_1):
+    with pytest.raises(TypeError):
+        new_list = category.add_product(1)
+
+
+def test_category_add_smartphone(category, smartphone_1):
+    """Тестирование метода добавления продукта в категорию"""
+    new_list = category.add_product(smartphone_1)
+    assert category.products_in_list[-1].name == "Samsung Galaxy S23 Ultra"
 
 
 def test_category_str(category):
