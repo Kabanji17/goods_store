@@ -18,6 +18,11 @@ def product_2():
 
 
 @pytest.fixture
+def product_3():
+    return Product(name="Насос", description='Насос автомобильный "Силач 3000"', price=4000, quantity=25)
+
+
+@pytest.fixture
 def category():
     return Category(
         name="Смартфоны",
