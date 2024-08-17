@@ -1,5 +1,7 @@
 import pytest
 
+from src.product import Product
+
 
 def test_category_init(category):
     """Тестирование инициализации объекта класса Category"""
@@ -51,3 +53,28 @@ def test_product_iterator(product_iterator):
 
     with pytest.raises(StopIteration):
         next(product_iterator)
+
+
+def test_middle_price(category, category_without_products):
+    assert category.middle_price() == 550056955.49
+    assert category_without_products.middle_price() == 0
+
+
+def test_custom_exception(capsys, category):
+    assert len(category.products_in_list) == 2
+
+    prod_add = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    category.add_product(prod_add)
+    message = capsys.readouterr()
+    assert message.out.strip().split("\n")[-2] == "Продукт добавлен успешно"
+    assert message.out.strip().split("\n")[-1] == "Обработка добавления продукта завершена"
+
+    # prod_add = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 0)
+    # category.add_product(prod_add)
+    # message = capsys.readouterr()
+    # assert message.out.strip().split("\n")[-1] == "Нельзя добавить товар с нулевым или отрицательным количеством"
+    # assert message.out.strip().split("\n")[-1] == "Обработка добавления продукта завершена"
+
+    with pytest.raises(ValueError, match="с нулевым количеством не может быть добавлен"):
+        prod_add = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 0)
+        category.add_product(prod_add)
