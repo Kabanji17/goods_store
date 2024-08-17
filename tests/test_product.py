@@ -27,7 +27,7 @@ def test_product_update(capsys, product_1):
     """Тестирование работы сеттера"""
     product_1.price = -800
     message = capsys.readouterr()
-    assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
+    assert message.out.strip() == "Product(Samsung Galaxy S, 256GB, Серый цвет, 200MP камера, 12899.99, 4)\nЦена не должна быть нулевая или отрицательная"
 
 
 def test_product_str(product_1, product_2):
