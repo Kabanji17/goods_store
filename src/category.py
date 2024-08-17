@@ -1,6 +1,6 @@
 from src.base_product_list import BaseProductList
-from src.product import Product
 from src.exceptions import ZeroQuantityProduct
+from src.product import Product
 
 
 class Category(BaseProductList):
